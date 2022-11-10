@@ -1,0 +1,88 @@
+<div class="div1">
+<div class="container my-5">
+    <h1 class="mb-3">Add New Employee</h1>
+    <div class="sidenav">
+      <a routerLink="/owner">Home</a>
+      <a routerLink="/AllGuest"> Guest Details</a> 
+      <a routerLink="/Department">Department</a>
+      <a routerLink="/AllRooms"> Rooms Details</a>
+      <button class="btn btn-success pull-right"  style="margin-top: 490px;margin-left: 20px; "  (click)="logout()">Log Out</button>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+          <div class="div2">
+            <form [formGroup]="empForm" #form="ngForm" (ngSubmit)="addEmployee()">
+                <div class="mb-3">
+                  <label for="name" class="form-label"><b>Name</b></label>
+                  <input type="text" class="form-control" id="name" formControlName="Employee_Name" 
+                  name="name" [(ngModel)]="addEmployeeRequest.Employee_Name">
+                </div>
+                <div class="error" *ngIf="Name.errors?.['required'] && (Name.dirty || Name.touched)"> Employee name is
+                  required
+              </div>
+                <div class="mb-3">
+                    <label for="pass" class="form-label"><b>Password</b></label>
+                    <input type="password" class="form-control" id="pass" formControlName="Employee_Password"
+                    name="pass" [(ngModel)]="addEmployeeRequest.Employee_Password">
+                  </div>
+                  <div class="error"  *ngIf="pswd.errors?.['required'] && (pswd.dirty || pswd.touched)">Password is Required</div>
+<div class="error"  *ngIf="pswd.errors?.['pattern']  && (pswd.dirty || pswd.touched)">Password should be secure and more than 8 characters</div>
+                  <!-- <div class="mb-3">
+                    <label for="designation" class="form-label">Designation</label>
+                    <input type="text" class="form-control" id="designation" formControlName="Employee_Designation"
+                    name="designation" [(ngModel)]="addEmployeeRequest.Employee_Designation">
+                  </div> -->
+                  <div class="mb-3">
+                    <label for="designation" class="form-label"><b>Designation</b></label><br>
+                    <select [(ngModel)]="addEmployeeRequest.Employee_Designation" formControlName="Employee_Designation">
+                      <option ngValue="Receptionist">Receptionist</option>
+                      <option ngValue="Manager">Manager</option>
+              </select>
+                  </div>
+                  <div class="error" *ngIf="desig.errors?.['required'] && (desig.dirty || desig.touched)"> Employee designation is
+                    required
+                </div>
+                  <div class="mb-3">
+                    <label for="salary" class="form-label"><b>Salary</b></label>
+                    <input type="number" class="form-control" id="salary" formControlName="Employee_Salary"
+                    name="salary" [(ngModel)]="addEmployeeRequest.Employee_Salary">
+                  </div>
+                  <div class="mb-3">
+                    <label for="age" class="form-label"><b>Age</b></label>
+                    <input type="number" class="form-control" id="age" formControlName="Employee_Age"
+                    name="age" [(ngModel)]="addEmployeeRequest.Employee_Age">
+                  </div>
+                  <div class="mb-3">
+                    <label for="email" class="form-label"><b>Email</b></label>
+                    <input type="email" class="form-control" id="email" formControlName="Employee_Email"
+                    name="email" [(ngModel)]="addEmployeeRequest.Employee_Email">
+                  </div>
+                  <div class="error" *ngIf="mail.errors?.['required'] && (mail.dirty || mail.touched)"> Email is
+                    required
+                </div>
+                <div class="error"  *ngIf="mail.errors?.['email']  && (mail.dirty || mail.touched)">Must be a valid email</div>
+
+                  <div class="mb-3">
+                    <label for="ph_no" class="form-label"><b>Phone Number</b></label>
+                    <input type="text" class="form-control" id="ph_no" formControlName="Employee_PhoneNo"
+                    name="ph_no" [(ngModel)]="addEmployeeRequest.Employee_PhoneNo">
+                  </div>
+                  <div class="error"  *ngIf="no.errors?.['required'] && (no.dirty || no.touched)">Phone Number is Required</div>
+<div class="error"  *ngIf="no.errors?.['minlength'] || no.errors?.['maxlength'] && (no.dirty || no.touched) ">Phone Number should be 10 digit Number </div>
+<div class="error"  *ngIf="no.errors?.['pattern'] && (no.dirty || no.touched)">Phone Number sholud be valid</div>
+                  <div class="mb-3">
+                    <label for="address" class="form-label"><b>Address</b></label>
+                    <input type="text" class="form-control" id="address" formControlName="Employee_Address"
+                    name="address" [(ngModel)]="addEmployeeRequest.Employee_Address">
+                  </div>
+                
+                <button type="submit" class="btn btn-primary">Save</button>
+              </form>
+            </div>
+        </div>
+    </div>
+  </div>
+
+</div>
+

@@ -1,0 +1,30 @@
+<div class="divi">
+</div>
+
+<div class="div1">
+    <h1 class="h1">Hotel California</h1>
+    <h2 class="h2">Login</h2>
+    <form [formGroup]="loginForm" #userlogin="ngForm" (ngSubmit)="login()">
+        <p class="id"><input [(ngModel)]="loginId" formControlName="loginId" type="email" placeholder="Enter Email"></p>
+        <div class="error" *ngIf="Id.errors?.['required'] && (Id.dirty || Id.touched)">User Login id is required</div>
+        <div class="error" *ngIf="Id.errors?.['required'] && (Id.dirty || Id.touched)"> Login id is required
+        </div>
+        <p class="pwd"><input [(ngModel)]="password" type="password" formControlName="password" placeholder="Enter Password"></p>
+        <div class="error" *ngIf="Pwd.errors?.['required'] && (Pwd.dirty || Pwd.touched)">Password is required
+        </div>
+        <div class="error" *ngIf="Pwd.errors?.['minlength'] || Pwd.errors?.['maxlength'] && (Pwd.dirty || Pwd.touched)">
+            Password sholud be minimun 6 characters</div>
+        <div class="q">
+            <p class="as">Login As:</p>
+            <select class="asd" [(ngModel)]="designation" (ngModelchange)="getDesig($event)" formControlName="loginAs">
+                        
+                            <option ngValue="Receptionist">Receptionist</option>
+                            <option ngValue="Manager">Manager</option>
+                            <option ngValue="Owner">Owner</option>
+                    </select>
+            <div class="error" *ngIf="las.errors?.['required'] && (las.dirty || las.touched)"> Role is required
+            </div>
+        </div>
+        <button class="but1" type="submit" [disabled]="loginForm.invalid" onclick=""> Login </button>
+    </form>
+</div>

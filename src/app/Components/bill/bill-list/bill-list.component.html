@@ -1,0 +1,53 @@
+<div class="div1">
+<div class="container my-5">
+    <h1 class="container my-3">Bill</h1>
+    <div class="sidenav">
+      <a routerLink="/Receptionist">Home</a>
+      <a routerLink="/Rooms/BookedRoom">Booked Rooms</a>
+      <a routerLink="/Rooms/UnbookedRoom">Available Rooms</a>
+      <a routerLink="/Guest"> Guest</a>
+      <a routerLink="/Reservation"> Reservation</a>
+      <a routerLink="/Bill">Bill</a>
+     
+      <a routerLink="/Payment">Payment</a>
+     
+      <button class="btn btn-success pull-right"  style="margin-top: 350px;margin-left: 20px; "  (click)="logout()">Log Out</button>
+    </div>
+    
+    <a [routerLink]="['/Bill','add']"><button class="btn btn-success pull-right"style="margin-left: 1160px" >Add new Bill</button></a>
+    
+    <div class="div2">
+<table class="table" *ngIf="bills && bills.length > 0">
+    <thead>
+      <tr>
+        <th scope="col">Bill Id</th>
+        <th scope="col">Guest Id</th>
+        <th scope="col">Bill Amount</th>
+        <th scope="col">Bill Date</th>
+        <th scope="col">Reservation Id</th>
+        <th scope="col">Paid</th>
+        <!-- <th scope="col">Action</th> -->
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bill of bills | filter:searchkey:'Reservation_Id'">
+        <td>{{bill.Bill_Id}}</td>
+        <td>{{bill.Guest_Id}}</td>
+        <td>{{bill.Bill_Amount}}</td>
+        <td>{{bill.Bill_Date | date:"longDate"}}</td>
+        <td>{{bill.Reservation_Id }}</td>
+        <td *ngIf="bill.Paid==true">Paid</td>
+        <td *ngIf="bill.Paid==false">Unpaid</td>
+        
+        <!-- <td><a [routerLink]="['/Bill','edit',bill.Bill_Id]"><button class="btn btn-success pull-right" >Update</button></a></td> -->
+        <td><a [routerLink]="['/Payment']"><button *ngIf="bill.Paid==false" class="btn btn-success pull-right" (click)="getBillid(bill)">Pay Bill</button></a></td>
+      </tr>
+        
+    </tbody>
+  </table>
+    
+  <p *ngIf="!bills || bills && bills.length <= 0">No bills found</p>
+</div>
+</div>
+</div>

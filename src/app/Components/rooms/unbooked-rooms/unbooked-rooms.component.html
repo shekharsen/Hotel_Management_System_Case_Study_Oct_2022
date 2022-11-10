@@ -1,0 +1,49 @@
+<div class="div1">
+<div class="container my-5">
+    <h1 class="container my-3">Available Rooms</h1>
+    <div class="sidenav">
+      <a routerLink="/Receptionist">Home</a>
+      <a routerLink="/Rooms/BookedRoom">Booked Rooms</a>
+      <a routerLink="/Rooms/UnbookedRoom">Available Rooms</a>
+      <a routerLink="/Guest"> Guest</a>
+      <a routerLink="/Reservation"> Reservation</a>
+      <a routerLink="/Bill">Bill</a>
+     
+      <a routerLink="/Payment">Payment</a>
+     
+      <button class="btn btn-success pull-right"  style="margin-top: 350px;margin-left: 20px; "  (click)="logout()">Log Out</button>
+    </div>
+    
+    <!-- <div><button (click)="getUnbookedRoom()">Show </button></div> -->
+    <div class="div2">
+<table class="table" *ngIf="rooms && rooms.length > 0">
+    <thead>
+      <tr>
+        <th scope="col">Room Id</th>
+        <!-- <th scope="col">Room Status</th> -->
+        <th scope="col">Room Comment</th>
+        <th scope="col">Room Inventory</th>
+        <th scope="col">Room Price</th>
+       <th></th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let room of rooms| filter:searchText">
+        <td>{{room.Room_Id}}</td>
+        <!-- <td>{{room.Room_Status}}</td> -->
+        <td>{{room.Room_Comment}}</td>
+        <td>{{room.Room_Inventory}}</td>
+        <td>{{room.Room_Price }}</td>
+        <td><a [routerLink]="['/Guest']"><button class="btn btn-success pull-right" (click)="getRoomid(room)">Go to Guest Details</button></a></td>
+        
+        
+      </tr>
+        
+    </tbody>
+  </table>
+  
+  <p *ngIf="!rooms || rooms && rooms.length <= 0">No rooms found</p>
+</div>
+</div>
+</div>

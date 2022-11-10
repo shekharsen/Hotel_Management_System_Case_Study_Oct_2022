@@ -1,0 +1,59 @@
+
+<div class="div1">
+<div class="container my-5">
+    <h1 class="mb-3">Reservation</h1> 
+    <div class="sidenav">
+        <a routerLink="/Receptionist">Home</a>
+        <a routerLink="/Rooms/BookedRoom">Booked Rooms</a>
+        <a routerLink="/Rooms/UnbookedRoom">Available Rooms</a>
+        <a routerLink="/Guest"> Guest</a>
+        <a routerLink="/Reservation"> Reservation</a>
+        <a routerLink="/Bill">Bill</a>
+       
+        <a routerLink="/Payment">Payment</a>
+       
+        <button class="btn btn-success pull-right"  style="margin-top: 350px;margin-left: 20px; "  (click)="logout()">Log Out</button>
+      </div>
+    <a routerLink="/Reservation/add/:Room_Id/:Guest_Id"><button class="btn btn-success pull-right"style="margin-left: 1100px" >Add New Reservation</button></a>
+     
+    
+    <div class="div2">
+    
+    <table class="table" *ngIf="Reservation && Reservation.length>0">
+        <thead>
+            <tr>
+                <th>Reservation Id</th>
+                <th>Room Id</th>
+                <th>Check-in Date</th>
+                <th>Check-out Date</th>
+                <th>Number Of Guests</th>
+                <th>Guest Id</th>
+                <th>Reservation Status</th>
+                <th> </th>
+                <th></th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let reservation of Reservation">
+                <td>{{reservation.Reservation_Id}}</td>
+                <td>{{reservation.Room_Id}}</td>
+                <td>{{reservation.Resevation_Check_In | date:"longDate"}}</td>
+                <td>{{reservation.Resevation_Check_Out | date:"longDate"}}</td>
+                <td>{{reservation.Reservation_No_of_Guests}}</td>
+                <td>{{reservation.Guest_Id}}</td>
+                <td *ngIf="reservation.Reservation_Status==true">Reserved</td>
+                <td *ngIf="reservation.Reservation_Status==false">Cancelled</td>
+                
+                <td><a [routerLink]="['/Reservation','update',reservation.Reservation_Id,reservation.Room_Id,reservation.Guest_Id]"><button class="btn btn-success pull-right" >Update/Cancel</button></a></td>
+                <td><a [routerLink]="['/Bill']"><button *ngIf="reservation.Reservation_Status==true" class="btn btn-success pull-right" (click)="getReservationId(reservation)">Billing </button></a></td>
+
+            </tr>
+        </tbody>
+    </table>
+
+    <p *ngIf="!Reservation || Reservation.length<=0">No Reservation Found</p>
+</div>
+</div>
+</div>
+

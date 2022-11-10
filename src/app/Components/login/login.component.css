@@ -1,0 +1,113 @@
+body,
+html {
+    height: 100%;
+}
+
+h2 {
+    text-align: center;
+}
+
+.divi {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    background-image: url(https://media.istockphoto.com/photos/senior-asian-business-man-working-on-laptop-online-smiling-and-happy-picture-id1365334437?b=1&k=20&m=1365334437&s=170667a&w=0&h=1fSiqo_U-vHQf5XL5fhe8Bn9pe2gVCw4ckjqbqv5D5c=);
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.form-signin-heading {
+    text-align: center;
+}
+
+.div1 {
+    text-align: center;
+    margin-bottom: 5px;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.box1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.box2 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn {
+    margin-top: 10px;
+}
+
+button {
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 100px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2.5px solid rgb(255, 255, 255);
+    background: transparent;
+    color: black;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0px 0px 2px 2px rgb(0, 0, 0);
+}
+
+span {
+    background: rgb(0, 0, 0);
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+button:hover span {
+    width: 100%;
+    fill: white;
+}
+
+button:hover {
+    border: none;
+    fill: rgb(255, 255, 255);
+}
+
+.error {
+    color: rgb(240, 181, 98);
+}
+
+.id {
+    font-size: x-large;
+}
+
+.pwd {
+    font-size: x-large;
+}
+
+.h1 {
+    color: white;
+    position: relative;
+    bottom: 150px;
+}
+
+.asd{
+    font-size: large;
+}

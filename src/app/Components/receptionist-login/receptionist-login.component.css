@@ -1,0 +1,75 @@
+h2 {
+    text-align:center;
+    color: white;
+
+}
+.container{
+    padding-top: 25px;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    background-image: url(https://cdn.pixabay.com/photo/2021/02/03/00/10/receptionist-5975961_960_720.jpg);
+    background-size: cover;
+    background-position: top center;
+  }
+  .form-signin-heading{
+      text-align: center;
+  }
+  .div1{
+      text-align: center;
+      margin-top: 30px;
+      background-color:antiquewhite ;
+    opacity: 0.9;
+    padding: 5px;
+    border: 1px solid white;
+    font-size: 17px;
+    border-collapse: collapse;
+
+  }
+  .box1{
+      text-align: center;
+      margin-top: 20px;
+  }
+  .box2{
+      text-align: center;
+      margin-top: 20px;
+  }
+  .btn{
+      margin-top: 10px;
+  }
+  button {
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 100px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2.5px solid aqua;
+    background: transparent;
+    color: black;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+span {
+    background: aqua;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+button:hover span {
+    width: 100%;
+}
+
+button:hover {
+    border: none;
+}

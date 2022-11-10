@@ -1,0 +1,49 @@
+<div class="div1">
+<div class="container my-5">
+    <h1 class="mb-3">Add Payment</h1>
+    <div class="sidenav">
+        <a routerLink="/Receptionist">Home</a>
+        <a routerLink="/Rooms/BookedRoom">Booked Rooms</a>
+        <a routerLink="/Rooms/UnbookedRoom">Available Rooms</a>
+        <a routerLink="/Guest"> Guest</a>
+        <a routerLink="/Reservation"> Reservation</a>
+        <a routerLink="/Bill">Bill</a>
+       
+        <a routerLink="/Payment">Payment</a>
+       
+        <button class="btn btn-success pull-right"  style="margin-top: 350px;margin-left: 20px; "  (click)="logout()">Log Out</button>
+      </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="div2">
+            <form [formGroup]="paymentForm" #form="ngForm" (ngSubmit)="addPayment()">
+                <div class="mb-3">
+                    <label for="card" class="form-label">Payment Card Number</label>
+                    <input type="text" class="form-control" id="card" formControlName="paymentCard"
+                    name="card" [(ngModel)]="addpayment.Payment_Card">
+                </div>
+                <div class="error"  *ngIf="CNo.errors?.['required'] && (CNo.dirty || CNo.touched)">Card Number is Required</div>
+<div class="error"  *ngIf="CNo.errors?.['minlength'] || CNo.errors?.['maxlength'] && (CNo.dirty || CNo.touched) ">Card Number should be 16 digit Number </div>
+<div class="error"  *ngIf="CNo.errors?.['pattern']  && (CNo.dirty || CNo.touched)">Card Number sholud be valid</div>
+                
+                <div class="mb-3">
+                    <label for="card_holder" class="form-label">Payment Card Holder Name</label>
+                    <input type="text" class="form-control" id="card_holder" formControlName="cardHolder"
+                    name="card_holder" [(ngModel)]="addpayment.Payment_Card_Holder_Name">
+                </div>
+                <div class="error" *ngIf="holderName.errors?.['required'] && (holderName.dirty || holderName.touched)"> Card holder's name is
+                    required
+                </div>
+                <div class="mb-3">
+                    <label for="bill_id" class="form-label">Bill Id</label>
+                    <input type="number" class="form-control" id="bill_id" formControlName="billId" readonly
+                    name="bill_id" [(ngModel)]="addpayment.Bill_Id">
+                </div>
+                <button type="submit" [disabled]="paymentForm.invalid" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+        </div>
+    </div>
+
+</div>
+</div>

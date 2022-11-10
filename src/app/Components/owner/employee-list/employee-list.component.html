@@ -1,0 +1,49 @@
+<div class="div1">
+<div class="container my-5">
+    <h1 class="container my-3">Employees List</h1>
+    <div class="sidenav">
+      <a routerLink="/owner">Home</a>
+      <a routerLink="/AllGuest"> Guest Details</a> 
+      <a routerLink="/Department">Department</a>
+      <a routerLink="/AllRooms"> Rooms Details</a>
+      <button class="btn btn-success pull-right"  style="margin-top: 490px;margin-left: 20px; "  (click)="logout()">Log Out</button>
+    </div>
+   
+    <a [routerLink]="['/Department','add']"><button class="btn btn-success pull-right"style="margin-right: 1000px" >Add New Employee</button></a>
+    
+    <div class="div2">
+<table class="table" *ngIf="employees && employees.length > 0">
+    <thead>
+      <tr>
+        <th scope="col">Employee Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Designation</th>
+        <th scope="col">Salary</th>
+        <th scope="col">Email</th>
+        <th scope="col">Age</th>
+        <th scope="col">Phone Number</th>
+        <th scope="col">Address</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>{{employee.Employee_Id}}</td>
+        <td>{{employee.Employee_Name}}</td>
+        <td>{{employee.Employee_Designation}}</td>
+        <td>{{employee.Employee_Salary}}</td>
+        <td>{{employee.Employee_Email}}</td>
+        <td>{{employee.Employee_Age}}</td>
+        <td>{{employee.Employee_PhoneNo}}</td>
+        <td>{{employee.Employee_Address}}</td>
+        
+        <td><a [routerLink]="['/Department','edit', employee.Employee_Id]"><button class="btn btn-success pull-right" >Update</button></a></td>
+      </tr>
+        
+    </tbody>
+  </table>
+  
+  <p *ngIf="!employees || employees && employees.length <= 0">No employees found</p>
+</div>
+</div>
+</div>

@@ -1,0 +1,70 @@
+<div class="div1">
+  <div class="container my-5">
+      <h1 class="mb-3">Add New Guest</h1>
+      <div class="sidenav">
+        <a routerLink="/Receptionist">Home</a>
+        <a routerLink="/Rooms/BookedRoom">Booked Rooms</a>
+        <a routerLink="/Rooms/UnbookedRoom">Available Rooms</a>
+        <a routerLink="/Guest"> Guest</a>
+        <a routerLink="/Reservation"> Reservation</a>
+        <a routerLink="/Bill">Bill</a>
+       
+        <a routerLink="/Payment">Payment</a>
+       
+        <button class="btn btn-success pull-right"  style="margin-top: 350px;margin-left: 20px; "  (click)="logout()">Log Out</button>
+      </div>
+      <div class="row">
+          <div class="col-6">
+            <div class="div2">
+              <form [formGroup]="guestForm" #form="ngForm" (ngSubmit)="addGuest()">
+                  <div class="mb-3">
+                    <label for="name" class="form-label"><b>Name</b></label>
+                    <input type="text" class="form-control" id="name" formControlName="Guest_Name"
+                    name="Guest_Name" [(ngModel)]="addGuestrequest.Guest_Name">
+                  </div>
+                  <div class="error" *ngIf="Name.errors?.['required'] && (Name.dirty || Name.touched)"> Guest name is
+                    required
+                </div>
+                  <div class="mb-3">
+                      <label for="email" class="form-label"><b>Email</b></label>
+                      <input type="email" class="form-control" id="email" formControlName="Guest_Email"
+                      name="Guest_Email"  [(ngModel)]="addGuestrequest.Guest_Email">
+                    </div>
+                    <div class="error" *ngIf="mail.errors?.['required'] && (mail.dirty || mail.touched)"> Email is
+                      required
+                  </div>
+                  <div class="error"  *ngIf="mail.errors?.['email']  && (mail.dirty || mail.touched)">Must be a valid email</div>
+                    <div class="mb-3">
+                      <label for="Age" class="form-label"><b>Age</b></label>
+                      <input type="number" class="form-control" id="Age" formControlName="Guest_Age"
+                      name="Guest_Age"  [(ngModel)]="addGuestrequest.Guest_Age">
+                    </div>
+                    <div class="error"  *ngIf="age.errors?.['required'] && (age.dirty || no.touched)">Age is Required</div>
+  <div class="error"  *ngIf="age.errors?.['min'] || age.errors?.['max'] && (age.dirty || age.touched) ">Age should be between 18 and 99 </div>
+   <div class="error"  *ngIf="age.errors?.['pattern'] && (age.dirty || age.touched)">Age should be a number</div> 
+                    <div class="mb-3">
+                      <label for="Phone" class="form-label"><b>Phone Number</b></label>
+                      <input type="text" class="form-control" id="Phone" formControlName="Guest_Phone_Number"
+                      name="Guest_Phone_Number"  [(ngModel)]="addGuestrequest.Guest_Phone_Number">
+                    </div>
+                    <div class="error"  *ngIf="no.errors?.['required'] && (no.dirty || no.touched)">Phone Number is Required</div>
+  <div class="error"  *ngIf="no.errors?.['minlength'] || no.errors?.['maxlength'] && (no.dirty || no.touched) ">Phone Number should be 10 digit Number </div>
+  <div class="error"  *ngIf="no.errors?.['pattern'] && (no.dirty || no.touched)">Phone Number sholud be valid</div>
+                    <div class="mb-3">
+                      <label for="Aadhar" class="form-label"><b>Aadhar Number</b></label>
+                      <input type="text" class="form-control" id="Aadhar" formControlName="Guest_Aadhar_Id"
+                      name=" Guest_Aadhar_Id"  [(ngModel)]="addGuestrequest. Guest_Aadhar_Id">
+                    </div>
+                    <div class="error"  *ngIf="id.errors?.['required'] && (id.dirty || id.touched)">Aadhar Number is Required</div>
+  <div class="error"  *ngIf="id.errors?.['minlength'] || id.errors?.['maxlength'] && (id.dirty || id.touched) ">Aadhar Number should be 12 digit Number </div>
+   <div class="error"  *ngIf="id.errors?.['pattern'] && (id.dirty || id.touched)">Aadhar Number sholud be a valid number</div> 
+                    <div class="mb-3">
+                      <label for="Address" class="form-label"><b>Address</b></label>
+                      <input type="text" class="form-control" id="Address" formControlName="Guest_Address"
+                      name="Guest_Address"  [(ngModel)]="addGuestrequest.Guest_Address">
+                    </div>
+                  
+                  <button type="submit" [disabled]="guestForm.invalid" class="btn btn-primary">Add</button>
+                </form>
+              </div>
+          </div>

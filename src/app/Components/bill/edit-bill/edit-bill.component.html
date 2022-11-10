@@ -1,0 +1,54 @@
+<div class="div1">
+<div class="container my-5">
+  <div class="sidenav">
+    <a routerLink="/Receptionist">Home</a>
+    <a routerLink="/Rooms/BookedRoom">Booked Rooms</a>
+    <a routerLink="/Rooms/UnbookedRoom">Available Rooms</a>
+    <a routerLink="/Guest"> Guest</a>
+    <a routerLink="/Reservation"> Reservation</a>
+    <a routerLink="/Bill">Bill</a>
+   
+    <a routerLink="/Payment">Payment</a>
+   
+    <button class="btn btn-success pull-right"  style="margin-top: 350px;margin-left: 20px; "  (click)="logout()">Log Out</button>
+  </div>
+    <h1 class="mb-3">Edit Bill</h1>
+
+    <div class="row">
+        <div class="col-6">
+          <div class="div2">
+            <form #form="ngForm" (ngSubmit)="updateBill()"> 
+                <div class="mb-3">
+                    <label for="bill_id" class="form-label">Bill Id</label>
+                    <input type="number" class="form-control" id="bill_id" readonly
+                    name="bill_id" [(ngModel)]="billDetails.Bill_Id">
+                  </div>
+                <div class="mb-3">
+                  <label for="guest_id" class="form-label">Guest Id</label>
+                  <input type="number" class="form-control" id="guest_id" 
+                  name="guest_id" [(ngModel)]="billDetails.Guest_Id">
+                </div>
+                <div class="mb-3">
+                    <label for="res_id" class="form-label">Reservation Id</label>
+                    <input type="number" class="form-control" id="res_id"
+                    name="res_id" [(ngModel)]="billDetails.Reservation_Id">
+                  </div>
+                  <div class="mb-3">
+                    <label for="amount" class="form-label">Bill Amount</label>
+                    <input type="number" class="form-control" id="amount"
+                    name="amount" [(ngModel)]="billDetails.Bill_Amount">
+                  </div>
+                  <div class="mb-3">
+                    <label for="day" class="form-label">Date</label>
+                    <input type="date" class="form-control" id="day"
+                    name="date" [(ngModel)]="billDetails.Bill_Date" >
+                  </div>
+                
+                <button type="submit" class="btn btn-primary" style="margin-right: 5px">Save</button>
+                <button type="button" class="btn btn-danger" (click)="deleteBill(billDetails.Bill_Id)">Delete</button>
+              </form>
+            </div>
+        </div>
+    </div>
+  </div>
+    

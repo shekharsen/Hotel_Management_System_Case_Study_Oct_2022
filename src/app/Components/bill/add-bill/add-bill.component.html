@@ -1,0 +1,49 @@
+<div class="div1">
+<div class="container my-5">
+    <h1 class="mb-3">Add New Bill</h1>
+    <div class="sidenav">
+      <a routerLink="/Receptionist">Home</a>
+      <a routerLink="/Rooms/BookedRoom">Booked Rooms</a>
+      <a routerLink="/Rooms/UnbookedRoom">Available Rooms</a>
+      <a routerLink="/Guest"> Guest</a>
+      <a routerLink="/Reservation"> Reservation</a>
+      <a routerLink="/Bill">Bill</a>
+     
+      <a routerLink="/Payment">Payment</a>
+     
+      <button class="btn btn-success pull-right"  style="margin-top: 350px;margin-left: 20px; "  (click)="logout()">Log Out</button>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+          <div class="div2">
+            <form #form="ngForm" (ngSubmit)="addBill()">
+                <div class="mb-3">
+                  <label for="guest_id" class="form-label"><b>Guest Id</b></label>
+                  <input type="number" class="form-control" id="guest_id" readonly
+                  name="guest_id" [(ngModel)]="addBillRequest.Guest_Id">
+                </div>
+                <div class="mb-3">
+                    <label for="res_id" class="form-label"><b>Reservation Id</b></label>
+                    <input type="number" class="form-control" id="res_id" readonly
+                    name="res_id" [(ngModel)]="addBillRequest.Reservation_Id">
+                  </div>
+                  <div class="mb-3">
+                    <label for="amount" class="form-label"><b>Bill Amount</b></label>
+                    <input type="number" class="form-control" id="amount"
+                    name="amount" [(ngModel)]="addBillRequest.Bill_Amount">
+                  </div>
+                  <div class="mb-3">
+                    <label for="day" class="form-label"><b>Date</b></label>
+                    <input type="date" class="form-control" min="{{currentDate | date:'yyyy-MM-dd'}}" max="{{currentDate | date:'yyyy-MM-dd'}}" id="day"
+                    name="date" [(ngModel)]="addBillRequest.Bill_Date" >
+                  </div>
+                
+                <button type="submit" class="btn btn-primary">Save</button>
+              </form>
+            </div>
+        </div>
+    </div>
+  </div>
+
+</div>

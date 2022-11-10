@@ -1,0 +1,58 @@
+<div class="div1">
+<div class="container my-5">
+
+    <h1 class="mb-3">Receptionist</h1> 
+    <div class="sidenav">
+        <a routerLink="/Manager">Home</a>
+        <a routerLink="/Rooms">Room</a>
+        
+        
+        <a routerLink="/Employee"> Receptionist</a>
+       
+        <button class="btn btn-success pull-right"  style="margin-top: 530px;margin-left: 20px; "  (click)="logout()">Log Out</button>
+      </div>
+    
+     
+    <div class="search">
+        <!-- <input type="text" name="search" [(ngModel)]="searchText" placeholder="Search by  Name"> -->
+        <a [routerLink]="['/Employee','add']"><button class="btn btn-success pull-right" style="margin-left: 1100px" >Add New Receptionist</button></a>
+         </div>
+    <div class="div2">
+    <table class="table" *ngIf=" employees && employees.length>0">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                
+                <th>Salary</th>
+                <th>Age</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+                <th> Email</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees| filter:searchText ">
+                <td>{{employee.Employee_Id}}</td>
+                <td>{{employee.Employee_Name}}</td>
+                
+                <td>{{employee.Employee_Salary}}</td>
+                <td>{{employee.Employee_Age}}</td>
+                <td>{{employee.Employee_PhoneNo}}</td>
+                <td>{{employee.Employee_Address}}</td>
+                <td>{{employee.Employee_Email}}</td>
+                
+                <td><a [routerLink]="['/Employee','update',employee.Employee_Id]"><button class="btn btn-success pull-right" >Update</button></a></td>
+                
+
+            </tr>
+        </tbody>
+    </table>
+
+    <p *ngIf="!employees || employees.length<=0">No Employee Found</p>
+</div>
+</div>
+</div>
+
+

@@ -1,0 +1,61 @@
+<div class="div1">
+<div class="container my-5">
+    <h1 class="mb-3">Edit Room</h1>
+    <div class="sidenav">
+      <a routerLink="/Manager">Home</a>
+      <a routerLink="/Rooms">Room</a>
+      
+      
+      <a routerLink="/Employee"> Receptionist</a>
+     
+      <button class="btn btn-success pull-right"  style="margin-top: 530px;margin-left: 20px; "  (click)="logout()">Log Out</button>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+          <div class="div2">
+            <form [formGroup]="roomForm" #form="ngForm" (ngSubmit)="updateRoom()">
+                <div class="mb-3">
+                    <label for="id" class="form-label">Room Number</label>
+                    <input type="text" class="form-control" id="id" formControlName="Room_Id" readonly
+                    name="id" [(ngModel)]="roomDetails.Room_Id">
+                  </div>
+                <!-- <div class="mb-3">
+                  <label for="status" class="form-label">Room Status</label>
+                  <input type="text" class="form-control" id="status" 
+                  name="status" [(ngModel)]="roomDetails.Room_Status">
+                </div> -->
+                <!-- <div class="mb-3">
+                    <label for="comment" class="form-label">Room Type</label>
+                    <input type="text" class="form-control" id="comment"
+                    name="comment"  [(ngModel)]="roomDetails.Room_Comment">
+                  </div> -->
+                  <div class="mb-3">
+                    <label for="comment" class="form-label">Room Type</label><br>
+                    <select id="comment" name="comment" [(ngModel)]="roomDetails.Room_Comment" formControlName="Room_Type">
+                      <option ngValue="Premium">Premium</option>
+                      <option ngValue="Luxury">Luxury</option>
+                      <option ngValue="Deluxe">Deluxe</option>
+              </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="inventory" class="form-label">Inventory List</label>
+                    <input type="text" class="form-control" id="inventory" formControlName="Room_inventory"
+                    name="inventory" [(ngModel)]="roomDetails.Room_Inventory" >
+                  </div>
+                  <div class="mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="number" class="form-control" id="price" formControlName="Room_Price"
+                    name="price" [(ngModel)]="roomDetails.Room_Price" >
+                  </div>
+                
+                <button type="submit" [disabled]="roomForm.invalid" class="btn btn-primary" style="margin-right: 5px">Update</button>
+                <button type="button" class="btn btn-danger" (click)="deleteRoom(roomDetails.Room_Id)">Delete</button>
+              </form>
+            </div>
+        </div>
+    </div>
+  </div> 
+
+</div>
+

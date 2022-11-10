@@ -1,0 +1,61 @@
+<div class="div1">
+<div class="container my-5">
+    <h1 class="mb-3">Add New Room</h1>
+    <div class="sidenav">
+      <a routerLink="/Manager">Home</a>
+      <a routerLink="/Rooms">Room</a>
+      
+      
+      <a routerLink="/Employee"> Receptionist</a>
+     
+      <button class="btn btn-success pull-right"  style="margin-top: 530px;margin-left: 20px; "  (click)="logout()">Log Out</button>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+          <div class="div2">
+            <form [formGroup]="roomForm" #form="ngForm" (ngSubmit)="addRoom()">
+                <!-- <div class="mb-3">
+                  <label for="status" class="form-label">Room Status</label>
+                  <input type="text" class="form-control" id="status" readonly
+                  name="status" [(ngModel)]="addroom.Room_Status">
+                </div> -->
+                <!-- <div class="mb-3">
+                    <label for="comment" class="form-label">Room Type</label>
+                    <input type="text" class="form-control" id="comment"
+                    name="comment"  [(ngModel)]="addroom.Room_Comment">
+                  </div> -->
+                  <div class="mb-3">
+                    <label for="comment" class="form-label"><b>Room Type</b></label><br>
+                    <div class="side">
+                    <select id="comment" name="comment"  [(ngModel)]="addroom.Room_Comment" formControlName="Room_Type" >
+                      <option ngValue="Premium">Premium</option>
+                      <option ngValue="Luxury">Luxury</option>
+                      <option ngValue="Deluxe">Deluxe</option>
+                    </select>
+                    <div class="error" *ngIf="room.errors?.['required'] && (room.dirty || room.touched)"> Role is required
+                    </div>
+                  </div>
+                  
+                  </div>
+                  <div class="mb-3">
+                    <label for="inventory" class="form-label"><b>Inventory List</b></label>
+                    <input type="text" class="form-control" id="inventory" formControlName="Room_inventory"
+                    name="inventory" [(ngModel)]="addroom.Room_Inventory" >
+                  </div>
+                  <div class="mb-3">
+                    <label for="price" class="form-label"><b>Price</b></label>
+                    <input type="text" class="form-control" id="price" formControlName="Room_Price"
+                    name="price" [(ngModel)]="addroom.Room_Price" >
+                  </div>
+                  <div class="error"  *ngIf="price.errors?.['required'] && (price.dirty || price.touched)">Room price Required</div>
+<div class="error"  *ngIf="price.errors?.['pattern'] && (price.dirty || price.touched)">Room price must be valid</div>
+                
+                <button type="submit" [disabled]="roomForm.invalid" class="btn btn-primary">Save</button>
+              </form>
+            </div>
+        </div>
+    </div>
+  </div> 
+
+</div>

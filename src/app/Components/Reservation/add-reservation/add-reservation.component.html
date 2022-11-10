@@ -1,0 +1,64 @@
+<div class="div1">
+<div class="container my-5">
+    <h1 class="mb-3">Add New Reservation</h1>
+    <div class="sidenav">
+      <a routerLink="/Receptionist">Home</a>
+      <a routerLink="/Rooms/BookedRoom">Booked Rooms</a>
+      <a routerLink="/Rooms/UnbookedRoom">Available Rooms</a>
+      <a routerLink="/Guest"> Guest</a>
+      <a routerLink="/Reservation"> Reservation</a>
+      <a routerLink="/Bill">Bill</a>
+     
+      <a routerLink="/Payment">Payment</a>
+     
+      <button class="btn btn-success pull-right"  style="margin-top: 350px;margin-left: 20px; "  (click)="logout()">Log Out</button>
+    </div>
+    
+    <div class="row">
+        <div class="col-6">
+          <div class="div2">
+            <form [formGroup]="reservationForm" #form="ngForm" (ngSubmit)="addReservation()">
+                
+                <div class="mb-3">
+                  <label for=" Room_Id" class="form-label"><b>Room Id</b></label>
+                  <input type="number" class="form-control" id=" Room_Id" formControlName="Room_id" readonly
+                  name=" Room_Id" [(ngModel)]="addreservationrequest.Room_Id">
+                </div>
+                <div class="mb-3">
+                  <label for="Guest_Id" class="form-label"><b>Guest Id</b></label>
+                  <input type="number" class="form-control" id="Guest_Id" formControlName="Guest_id" readonly
+                  name="Guest_Id" [(ngModel)]="addreservationrequest.Guest_Id">
+                </div>
+                <div class="mb-3">
+                  <label for="Resevation_Check_In" class="form-label"><b>Check-in Date</b></label>
+                  <input type="date" class="form-control" min="{{currentDate | date:'yyyy-MM-dd'}}"  id="Resevation_Check_In" formControlName="Check_in" 
+                  name="Resevation_Check_In" [(ngModel)]="addreservationrequest.Resevation_Check_In">
+                </div>
+                <div class="mb-3">
+                    <label for="Resevation_Check_Out" class="form-label"><b>Check-out Date</b></label>
+                    <input type="date" class="form-control" min="{{addreservationrequest.Resevation_Check_In | date:'yyyy-MM-dd'}}" id="Resevation_Check_Out" formControlName="Check_out"
+                    name="Resevation_Check_Out"  [(ngModel)]="addreservationrequest.Resevation_Check_Out">
+                  </div>
+                  <div class="mb-3">
+                    <label for="Reservation_No_of_Guests" class="form-label"><b>Number of Guests</b></label>
+                    <input type="number" class="form-control" id="Reservation_No_of_Guests" formControlName="Guest"
+                    name="Reservation_No_of_Guests"  [(ngModel)]="addreservationrequest.Reservation_No_of_Guests">
+                  </div>
+                  <div class="error" *ngIf="no.errors?.['required'] && (no.dirty || no.touched)"> Number of guests must be more than 1 and less than 5
+                </div>
+                  <!-- <div class="mb-3">
+                    <label for="Reservation_Status" class="form-label">Reservation Status</label>
+                    <input type="boolean" class="form-control" id="Reservation_Status"
+                    name="Reservation_Status"  [(ngModel)]="addreservationrequest.Reservation_Status">
+                  </div> -->
+                  
+                  
+                
+                <button type="submit" [disabled]="reservationForm.invalid" class="btn btn-primary">Add</button>
+              </form>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+

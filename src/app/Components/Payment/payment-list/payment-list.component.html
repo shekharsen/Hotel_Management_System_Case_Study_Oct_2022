@@ -1,0 +1,49 @@
+<div class="div1">
+<div class="container my-5">
+    <h1 class="container my-3">Payment</h1>
+    <div class="container my-5">
+         
+        <div class="sidenav">
+            <a routerLink="/Receptionist">Home</a>
+            <a routerLink="/Rooms/BookedRoom">Booked Rooms</a>
+            <a routerLink="/Rooms/UnbookedRoom">Available Rooms</a>
+            <a routerLink="/Guest"> Guest</a>
+            <a routerLink="/Reservation"> Reservation</a>
+            <a routerLink="/Bill">Bill</a>
+           
+            <a routerLink="/Payment">Payment</a>
+           
+            <button class="btn btn-success pull-right"  style="margin-top: 350px;margin-left: 20px; "  (click)="logout()">Log Out</button>
+          </div>
+   
+    <a [routerLink]="['/Payment','add']"><button class="btn btn-success pull-right"style="margin-left: 1100px" >Add New Payment</button></a> 
+   
+    <div class="div2">
+    <table class="table" *ngIf="payments && payments.length > 0">
+        <thead>
+            <tr>
+                <th scope="col">Payment ID</th>
+                <th scope="col">Payment Card</th>
+                <th scope="col">Payment Holder</th>
+                <th scope="col">Bill ID</th>
+
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let payment of payments">
+                <td>{{payment.Payment_Id}}</td>
+                <td>{{payment.Payment_Card}}</td>
+                <td>{{payment.Payment_Card_Holder_Name}}</td>
+                <td>{{payment.Bill_Id}}</td>
+                
+                
+            </tr>
+
+        </tbody>
+    </table>
+
+    <p *ngIf="!payments || payments && payments.length <= 0">No payments found</p>
+</div>
+</div>
+</div>
